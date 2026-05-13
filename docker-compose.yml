@@ -1,0 +1,46 @@
+# docker-compose.yml
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: restaurante-postgres
+    environment:
+      POSTGRES_DB: restaurante
+      POSTGRES_USER: caio
+      POSTGRES_PASSWORD: senha123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U caio -d restaurante"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: restaurante-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass senha123
+    volumes:
+      - redis_data:/data
+
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    container_name: restaurante-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: caio
+      RABBITMQ_DEFAULT_PASS: senha123
+    ports:
+      - "5672:5672"   # porta AMQP (Spring se conecta aqui)
+      - "15672:15672" # painel web de administração
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+volumes:
+  postgres_data:
+  redis_data:
+  rabbitmq_data:

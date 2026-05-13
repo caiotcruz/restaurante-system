@@ -1,0 +1,40 @@
+# src/main/resources/application.yml
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/restaurante
+    username: caio
+    password: senha123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update          # cria/atualiza tabelas automaticamente
+    show-sql: true              # mostra SQL no console (útil para debugar)
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: senha123
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: caio
+    password: senha123
+
+jwt:
+  secret: "rY8mP2xVq4Kj9Nc7Tz5HwLf1Ba6DsQe3Ui0OpXvRnMk"
+  expiration: 86400000    # 24 horas em milissegundos
+
+logging:
+  level:
+    com.restaurante: DEBUG
+    org.springframework.security: DEBUG
