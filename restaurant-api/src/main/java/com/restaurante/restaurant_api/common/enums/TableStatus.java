@@ -1,5 +1,8 @@
 package com.restaurante.restaurant_api.common.enums;
 
-public class TableStatus {
-    
+public enum TableStatus {
+    FREE,           
+    OCCUPIED,       
+    WAITING_BILL,   
+    CLEANING       
 }

@@ -1,5 +1,10 @@
 package com.restaurante.restaurant_api.common.enums;
 
-public class OrderStatus {
-    
+public enum OrderStatus {
+    PENDING,     
+    RECEIVED,    
+    PREPARING,    
+    READY,        
+    DELIVERED,    
+    CANCELLED     
 }

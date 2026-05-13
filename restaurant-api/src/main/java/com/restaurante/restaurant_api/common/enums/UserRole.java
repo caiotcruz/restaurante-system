@@ -1,5 +1,8 @@
 package com.restaurante.restaurant_api.common.enums;
 
-public class UserRole {
-    
+public enum UserRole {
+    CUSTOMER,   
+    WAITER,    
+    KITCHEN,    
+    MANAGER     
 }
