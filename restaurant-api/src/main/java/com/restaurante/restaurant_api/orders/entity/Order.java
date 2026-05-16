@@ -24,6 +24,7 @@ public class Order {
     @JoinColumn(name = "table_id", nullable = false)
     private RestaurantTable table;
 
+    @Builder.Default
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private OrderStatus status = OrderStatus.PENDING;
@@ -34,6 +35,7 @@ public class Order {
     @Column(length = 500)
     private String observations;
 
+    @Builder.Default                          
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 

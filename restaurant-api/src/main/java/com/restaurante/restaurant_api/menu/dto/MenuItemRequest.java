@@ -1,5 +1,11 @@
 package com.restaurante.restaurant_api.menu.dto;
 
-public class MenuItemRequest {
-    
-}
+import java.math.BigDecimal;
+
+public record MenuItemRequest(
+    Long categoryId,
+    String name,
+    String description,
+    BigDecimal price,
+    Integer prepTimeMinutes
+) {}

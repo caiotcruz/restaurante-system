@@ -2,6 +2,8 @@ package com.restaurante.restaurant_api.menu.entity;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -34,5 +36,6 @@ public class MenuItem {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
+    @JsonIgnoreProperties({"items", "hibernateLazyInitializer", "handler"})
     private Category category;
 }

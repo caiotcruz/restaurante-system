@@ -1,0 +1,18 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+
+  data:
+    redis:
+      password: ""  
+
+jwt:
+  secret: test-secret-key-para-testes-de-integracao-minimo32chars
+  expiration: 86400000
+
+logging:
+  level:
+    com.restaurante: WARN  
+    org.springframework.security: WARN
